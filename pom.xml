@@ -45,7 +45,7 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		
+
 		<!-- Primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -53,7 +53,7 @@
 			<version>${primefaces.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- utils -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -62,4 +62,32 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<repoToken>coverallstoken</repoToken>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<format>xml</format>
+					<maxmem>256m</maxmem>
+					<!-- aggregated reports for multi-module projects -->
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+
 </project>
