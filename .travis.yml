@@ -5,3 +5,7 @@ jdk:
 branches:
   only:
     - master
+    
+env:
+  global:
+    - secure: coverallstoken
