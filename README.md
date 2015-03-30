@@ -1,6 +1,6 @@
 # Lion Custom lib
 
-Project develop for help and improve Java EE development. This lib add some functionalis for each tree MVC layer.
+Project develop for help and improve Java EE development. This lib add some features for each tree MVC layer.
 
 Get free for clone and add this lib in your poject.
 
