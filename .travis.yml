@@ -9,3 +9,6 @@ branches:
 env:
   global:
     - secure: coverallstoken
+    
+after_success:
+  - mvn clean cobertura:cobertura coveralls:report
