@@ -65,6 +65,7 @@
 
 	<build>
 		<plugins>
+			<!-- coverall plugins -->
 			<plugin>
 				<groupId>org.eluder.coveralls</groupId>
 				<artifactId>coveralls-maven-plugin</artifactId>
@@ -84,6 +85,13 @@
 					<!-- aggregated reports for multi-module projects -->
 					<aggregate>true</aggregate>
 				</configuration>
+			</plugin>
+			
+			<!-- javadoc plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.2</version>
 			</plugin>
 		</plugins>
 
