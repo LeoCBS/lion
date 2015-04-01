@@ -56,7 +56,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 
 			this.addwherePredications(filters, cb, cq, root);
 
-			Query query = entityManager.createQuery(cq);
+			TypedQuery<T> query = entityManager.createQuery(cq);
 			query.setFirstResult(first);
 			query.setMaxResults(pageSize);
 			return query.getResultList();
