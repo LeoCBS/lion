@@ -259,4 +259,10 @@ public abstract class AbstractService<T extends AbstractEntity> {
 
 		return query.getResultList();
 	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	
 }
