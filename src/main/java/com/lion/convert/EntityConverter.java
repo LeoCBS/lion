@@ -32,14 +32,22 @@ public class EntityConverter implements Converter {
 				if (entity.getAbstractId() != null) {
 					return String.valueOf(entity.getAbstractId());
 				}
-				return (String) value;
+				try {
+					return (String) value;
+				} catch (Exception e) {
+					e.printStackTrace();
+					return "";
+				}
 			}
 		}
 		return "";
 	}
 
 	private void addAttribute(UIComponent component, AbstractEntity o) {
-		this.getAttributesFrom(component).put(o.getAbstractId().toString(), o);
+		if (o.getAbstractId() != null) {
+			this.getAttributesFrom(component).put(o.getAbstractId().toString(),
+					o);
+		}
 	}
 
 	private Map<String, Object> getAttributesFrom(UIComponent component) {

@@ -171,6 +171,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 
 	public void create(final T toSave) throws Exception {
 		entityManager.persist(toSave);
+		this.entityManager.flush();
 	}
 
 	public void update(final T toUpdate) throws Exception {
