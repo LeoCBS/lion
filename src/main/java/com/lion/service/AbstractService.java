@@ -18,8 +18,8 @@ import javax.persistence.criteria.Root;
 import com.lion.entity.AbstractEntity;
 
 /**
- * Prefixo 'find' = buscas com like <br>
- * Prefixo 'load' = buscas sem like
+ * Prefix 'find' = query with like <br>
+ * Prefix 'load' = query with equal
  * 
  * 
  * @author Leonardo Cesar Borges <leocborgess@gmail.com>
@@ -38,8 +38,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 	protected abstract TypedQuery<Long> getQueryCount();
 
 	/**
-	 * verifica se a classe filho tem consulta definida, caso nao tenha cria
-	 * criteria generico
+	 * Verify if sub class have one query, otherwise make one generic criteria.
 	 * 
 	 * @param first
 	 * @param pageSize
@@ -57,7 +56,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 
 			this.addwherePredications(filters, cb, cq, root);
 
-			Query query = entityManager.createQuery(cq);
+			TypedQuery<T> query = entityManager.createQuery(cq);
 			query.setFirstResult(first);
 			query.setMaxResults(pageSize);
 			return query.getResultList();
@@ -78,8 +77,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 	}
 
 	/**
-	 * verifica se a classe filho tem count definido, caso nao tenha cria
-	 * criteria generico para count
+	 * Verify if sub class have one count query, otherwise make one generic criteria.
 	 * 
 	 * @param filters
 	 * @return
@@ -214,8 +212,7 @@ public abstract class AbstractService<T extends AbstractEntity> {
 	}
 
 	/**
-	 * Executa NamedQuery passada por parametro, os nomes dos filtros no map
-	 * devem ser iguais ao nomes dos parametros da NamedQuery
+	 * Execute NamedQuery param.<br> Map fields must be equal the name field in NamedQuery
 	 * 
 	 * @param sQuery
 	 * @param classParam
